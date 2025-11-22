@@ -1,0 +1,54 @@
+---
+metadata:
+  description: WIP experiment. A blocking task in the middle of a background action. It stops the on-page spinner. Simulates what would happen if a user chose to cancel a Python `subprocess.Popen()` synchronously.
+---
+mandatory: True
+need:
+  - did_kill_process
+  - killing_process
+code: |
+  start
+  the_task
+
+  # There would be other logic about whether the user wants to cancel the background action
+  # Here we assume they do want to cancel the action
+
+  user_cancelled = True
+  if user_cancelled and not did_kill_process:
+    # This blocks other code and causes the spinner on the page to pause
+    kill_process
+    did_kill_process = True
+
+  end
+---
+code: |
+  the_task = background_action('process_alkiln')
+---
+# Asynchronous background action
+event: process_alkiln
+code: |
+  import time
+  time.sleep(20)
+  background_response()
+---
+# Synchronous code
+code: |
+  import time
+  time.sleep(5)
+  kill_process = True
+---
+code: |
+  killing_process = False
+---
+code: |
+  did_kill_process = False
+---
+question: Hi
+continue button field: start
+---
+event: wait_for_process
+question: Waiting
+---
+event: end
+question: Bye
+---

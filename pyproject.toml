@@ -1,0 +1,27 @@
+[build-system]
+requires = [
+    "setuptools==80.9.0",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "docassemble.BehaviorSnippets"
+version = "0.0.1"
+description = "Experiments with and demos of docassemble behavior"
+readme = "README.md"
+authors = [
+    { name = "", email = "52798256+plocket@users.noreply.github.com" },
+]
+dependencies = []
+license = "MIT"
+license-files = [
+    "LICENSE",
+]
+
+[project.urls]
+Homepage = "https://docassemble.org"
+
+[tool.setuptools.packages.find]
+where = [
+    ".",
+]
