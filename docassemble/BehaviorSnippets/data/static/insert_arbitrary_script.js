@@ -7,6 +7,7 @@ $(document).on('daPageLoad', async function() {
    * 
    * Avoid layout shift by using an initial dummy element of the same size as the
    * final element plus some other details: https://web.dev/articles/optimize-cls
+   * Web archive: https://web.archive.org/web/20260428160404/https://web.dev/articles/optimize-cls
    */
 
   const relocated_class = `relocated`;
