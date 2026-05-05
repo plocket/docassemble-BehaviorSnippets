@@ -3,8 +3,6 @@ features:
   javascript:
     - survey_monkey_script.js
     - insert_arbitrary_script.js
-  css:
-    
 ---
 mandatory: True
 code: |
